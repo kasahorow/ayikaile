@@ -1,12 +1,11 @@
-# ayikaile
+# Getting started with AYIKAILE: Multilingual at Work Support by kasahorow
 
-This documentation act as a completion of the original ayikaile API documentation available at https://ayikaile.kasahorow.com/docs.
+This documentation is for developers looking to integrate the AYIKAILE: Multilingual at Work keyword detection API available at https://ayikaile.kasahorow.com/docs.
 
-It will act as a getting starter for any developer desiring use the API.
 
 ### Prerequisites
 
-- Hold an available subscription at https://ayikaile.kasahorow.com.
+- Buy a support package at https://ayikaile.kasahorow.com.
 
 ### Example scripts
 
@@ -18,7 +17,7 @@ The example scripts for auth, training and prediction are available in the [`exa
 
 - Go at https://kasahorow.com and login.
 - Check your mailbox and click on the woaka link.
-- Copy the access code available on the url (eg: `https://me.woaka.com?access=<access_code>`)
+- Copy the access code available in the login email under 'Consent Code'
 
 **Generate an API access token** -> */api/v1/token*
 
