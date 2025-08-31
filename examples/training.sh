@@ -3,7 +3,7 @@
 set -e
 
 BASE=$(dirname $0)
-HOST='https://ayikaile.kasahorow.com'
+HOST='http://127.0.0.1:8080'
 
 echo "Authentication..."
 token=$(curl -Ss -X 'POST' \
@@ -12,44 +12,50 @@ token=$(curl -Ss -X 'POST' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'username=example%40ayikaile.com&password=example' | jq -r '.access_token')
 
-echo "Training of akia (a graduated ruler)..."
+echo "Training of the akan word 'din'..."
 curl -Ss -X 'POST' \
-  "$HOST/api/v1/train?text=akia" \
+  "$HOST/api/v1/train?text=din&language_code=akan" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer ${token}" \
   -H 'Content-Type: multipart/form-data' \
-  -F "audios=@${BASE}/data/akia/spkr_37_word_23_occ_2_ci_3_l_3.wav;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/akia/spkr_14_word_23_occ_2_ci_3_l_3.wav;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/akia/spkr_10_word_23_occ_2_ci_3_l_3.wav;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/akia/spkr_17_word_23_occ_2_ci_3_l_3.wav;type=audio/vnd.wave"
+  -F "audios=@${BASE}/data/din/din8.flac.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/din/din2.flac.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/din/din6.flac.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/din/din4.flac.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/din/din9.flac.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/din/din7.flac.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/din/din3.flac.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/din/din5.flac.mp3;type=audio/vnd.wave"
 echo ''
 
-echo "Training of Atsá’ (the earth)..."
+echo "Training of the english word 'hello'..."
 curl -Ss -X 'POST' \
-  "$HOST/api/v1/train?text=atsa%CC%81%E2%80%99" \
+  "$HOST/api/v1/train?text=hello&language_code=english" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer ${token}" \
   -H 'Content-Type: multipart/form-data' \
-  -F "audios=@${BASE}/data/atsa/spkr_65_word_57_occ_2_ci_8_l_3.wav;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/atsa/spkr_18_word_57_occ_2_ci_8_l_3.wav;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/atsa/spkr_12_word_57_occ_2_ci_8_l_3.wav;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/atsa/spkr_25_word_57_occ_2_ci_8_l_3.wav;type=audio/vnd.wave"
+  -F "audios=@${BASE}/data/hello/hello_en-US_OliviaV3Voice.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/hello/hello_en-US_HenryV3Voice.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/hello/hello_en-GB_CharlotteV3Voice.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/hello/hello_en-GB_KateV3Voice.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/hello/hello_en-US_AllisonV3Voice.mp3;type=audio/vnd.wave" \
+  -F "audios=@${BASE}/data/hello/hello_en-US_MichaelV3Voice.mp3;type=audio/vnd.wave"
 echo ''
 
-echo "Testing akia..."
+echo "Testing of the akan word 'din' to english..."
 curl -X 'POST' \
-  "$HOST/api/v1/stt" \
+  "$HOST/api/v1/stt?text=&language_code=english" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer $token" \
   -H 'Content-Type: multipart/form-data' \
-  -F "audio=@${BASE}/data/akia/spkr_33_word_23_occ_2_ci_3_l_3.wav;type=audio/vnd.wave"
+  -F "audio=@${BASE}/data/din/din.flac.mp3;type=audio/vnd.wave"
 echo ''
 
-echo "Testing atsa..."
+echo "Testing of the english word 'hello' to akan..."
 curl -X 'POST' \
-  "$HOST/api/v1/stt" \
+  "$HOST/api/v1/stt?text=&language_code=akan" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer $token" \
   -H 'Content-Type: multipart/form-data' \
-  -F "audio=@${BASE}/data/atsa/spkr_11_word_57_occ_2_ci_8_l_3.wav;type=audio/vnd.wave"
+  -F "audio=@${BASE}/data/hello/hello_en-GB_JamesV3Voice.mp3;type=audio/vnd.wave"
 echo ''
