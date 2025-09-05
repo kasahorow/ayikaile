@@ -3,7 +3,7 @@
 set -e
 
 BASE=$(dirname $0)
-HOST='http://127.0.0.1:8080'
+HOST='https://ayikaile.kasahorow.com'
 
 echo "Authentication..."
 token=$(curl -Ss -X 'POST' \
