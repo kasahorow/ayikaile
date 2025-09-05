@@ -10,7 +10,7 @@ token=$(curl -Ss -X 'POST' \
   "$HOST/token" \
   -H 'accept: application/json' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'username=example%40ayikaile.com&password=example' | jq -r '.access_token')
+  -d 'username=test%40example.com&password=example' | jq -r '.access_token')
 
 echo "Training of the akan word 'din'..."
 curl -Ss -X 'POST' \

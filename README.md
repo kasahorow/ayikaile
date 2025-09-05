@@ -16,8 +16,8 @@ The example scripts for auth, training and prediction are available in the [`exa
 **Get your access code**
 
 - Go at https://kasahorow.com and login.
-- Check your mailbox and click on the woaka link.
-- Copy the access code available in the login email under 'Consent Code'
+- Check your mailbox.
+- Copy the access code available in the login mail under 'Consent Code'
 
 **Generate an API access token** -> */api/v1/token*
 
@@ -25,7 +25,7 @@ The example scripts for auth, training and prediction are available in the [`exa
 - Use your access code as follows.
 
 ```
-username=<access_code>@ayikaile.com
+username=<your_email>
 password=<access_code>
 ```
 
