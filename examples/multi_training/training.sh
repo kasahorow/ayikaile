@@ -50,6 +50,10 @@ for agent in $CLEANED_METADATA_PATH/*; do
 			"
 		done < $agent_word
 
+		# Add 03 duplicates to ensure we respect model restriction.
+		d=$(echo $cmd | xargs -d ' ' -i echo {} | tail -n 3 | tr '\n' ' ')
+		cmd="$cmd $d $d $d"
+
 		eval $cmd | jq -er '.status'
 	done	
 done
