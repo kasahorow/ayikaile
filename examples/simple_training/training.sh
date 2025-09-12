@@ -3,6 +3,7 @@
 set -e
 
 BASE=$(dirname $0)
+# HOST='http://127.0.0.1:8000'
 HOST='https://ayikaile.kasahorow.com'
 
 echo "Authentication..."
@@ -18,14 +19,14 @@ curl -Ss -X 'POST' \
   -H 'accept: application/json' \
   -H "Authorization: Bearer ${token}" \
   -H 'Content-Type: multipart/form-data' \
-  -F "audios=@${BASE}/data/din/din8.flac.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/din/din2.flac.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/din/din6.flac.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/din/din4.flac.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/din/din9.flac.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/din/din7.flac.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/din/din3.flac.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/din/din5.flac.mp3;type=audio/vnd.wave"
+  -F "audios=@${BASE}/data/din/din8.flac.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/din/din2.flac.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/din/din6.flac.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/din/din4.flac.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/din/din9.flac.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/din/din7.flac.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/din/din3.flac.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/din/din5.flac.mp3;type=audio/mpeg"
 echo ''
 
 echo "Training of the english word 'hello'..."
@@ -34,12 +35,12 @@ curl -Ss -X 'POST' \
   -H 'accept: application/json' \
   -H "Authorization: Bearer ${token}" \
   -H 'Content-Type: multipart/form-data' \
-  -F "audios=@${BASE}/data/hello/hello_en-US_OliviaV3Voice.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/hello/hello_en-US_HenryV3Voice.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/hello/hello_en-GB_CharlotteV3Voice.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/hello/hello_en-GB_KateV3Voice.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/hello/hello_en-US_AllisonV3Voice.mp3;type=audio/vnd.wave" \
-  -F "audios=@${BASE}/data/hello/hello_en-US_MichaelV3Voice.mp3;type=audio/vnd.wave"
+  -F "audios=@${BASE}/data/hello/hello_en-US_OliviaV3Voice.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/hello/hello_en-US_HenryV3Voice.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/hello/hello_en-GB_CharlotteV3Voice.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/hello/hello_en-GB_KateV3Voice.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/hello/hello_en-US_AllisonV3Voice.mp3;type=audio/mpeg" \
+  -F "audios=@${BASE}/data/hello/hello_en-US_MichaelV3Voice.mp3;type=audio/mpeg"
 echo ''
 
 echo "Testing of the akan word 'din' to english..."
@@ -48,7 +49,7 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H "Authorization: Bearer $token" \
   -H 'Content-Type: multipart/form-data' \
-  -F "audio=@${BASE}/data/din/din.flac.mp3;type=audio/vnd.wave"
+  -F "audio=@${BASE}/data/din/din9.flac.mp3;type=audio/mpeg"
 echo ''
 
 echo "Testing of the english word 'hello' to akan..."
@@ -57,5 +58,5 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H "Authorization: Bearer $token" \
   -H 'Content-Type: multipart/form-data' \
-  -F "audio=@${BASE}/data/hello/hello_en-GB_JamesV3Voice.mp3;type=audio/vnd.wave"
+  -F "audio=@${BASE}/data/hello/hello_en-GB_JamesV3Voice.mp3;type=audio/mpeg"
 echo ''
