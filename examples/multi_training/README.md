@@ -1,7 +1,7 @@
 # multi training
 
-In this example, we train models per agents.
-We will have 69 agents, each agent will pronunce around 60 words, and for each word we can have between 01 and 02 pronunciations.
+In this example, we will automate the training of many agent models.
+We will handle 69 agents, each agent will pronunce around 60 words, and for each word we can have between 01 and 02 pronunciations.
 
 ### Implementation
 
@@ -13,6 +13,13 @@ To manage agent credentials via our script, we manually created a [credential fi
 
 With the agent credentials, we will start the training by uploading the dataset (word by word).
 
+### Structure
+
+If you have a similar usecase: automation of trained models for many agents, you should prepare the 03 scripts.
+
+- data preparation script: to organize your dataset for easy training
+- data training script: to train the model at ayikaile
+- data validation script: to test if the trained models are working as expected
 
 ### Disclaimer
 
