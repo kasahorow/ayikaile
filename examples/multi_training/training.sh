@@ -46,7 +46,7 @@ for agent in $CLEANED_METADATA_PATH/*; do
 
 		while read audio; do
 			cmd="$cmd
-			-F 'audios=@$audio;type=audio/vnd.wave' \
+			-F 'audios=@$(echo $audio | cut -d , -f 1);type=audio/vnd.wave' \
 			"
 		done < $agent_word
 

@@ -6,15 +6,21 @@ source $(dirname $0)/config.sh
 
 lang_code=akan
 audio=$DATA_PATH/combined.mp3
-token=$(cat $(find $TEMP_DIR/*.token | head -n 1))
+token=$(find $TEMP_DIR/*.token | head -n 1)
+agent=$(echo $token | sed 's/.*\/\(.*\).token/\1/g')
+agent_id=$(expr $(echo $agent | sed 's/agent\(.*\)@.*/\1/g') + 0)
 
 # Generate the test audio.
-ffmpeg -y -safe 0 -f concat -i <(find $DATA_PATH/audio -type f | head -n 100 | xargs -i printf "file '`pwd`/{}'\n") $audio
+ffmpeg -y -safe 0 -f concat -i <(cat $CLEANED_METADATA_PATH/$agent_id/* | sort -R | head -n 100 | tee $DATA_PATH/combined.txt | cut -d , -f 1 | xargs -i printf "file '{}'\n") $audio
 
-echo "Validation of $audio..."
+cat $DATA_PATH/combined.txt | cut -d , -f 2 | xargs -i printf '{} ' > $audio.original.txt
+
+echo "Validation of $audio using $agent..."
 curl -X 'POST' \
   "$HOST/api/v1/stt?text=&language_code=$lang_code" \
   -H 'accept: application/json' \
-  -H "Authorization: Bearer $token" \
+  -H "Authorization: Bearer $(cat $token)" \
   -H 'Content-Type: multipart/form-data' \
-  -F "audio=@$audio;type=audio/vnd.wave"
+  -F "audio=@$audio;type=audio/vnd.wave" | jq > $audio.predicted.json
+
+echo The result is available at $(dirname $audio)

@@ -26,5 +26,5 @@ for audio in $DATA_PATH/audio/*/*/*.wav; do
     output=$output_dir/$(echo $word | tr ' ' '_')
 
     echo -n .
-    echo $audio >> $output
+    echo $audio,$word >> $output
 done
