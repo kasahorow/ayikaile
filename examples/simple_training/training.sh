@@ -3,8 +3,8 @@
 set -e
 
 BASE=$(dirname $0)
-# HOST='http://127.0.0.1:8000'
-HOST='https://ayikaile.kasahorow.com'
+HOST='http://127.0.0.1:8000'
+# HOST='https://ayikaile.kasahorow.com'
 
 echo "Authentication..."
 token=$(curl -Ss -X 'POST' \
@@ -43,20 +43,11 @@ curl -Ss -X 'POST' \
   -F "audios=@${BASE}/data/hello/hello_en-US_MichaelV3Voice.mp3;type=audio/mpeg"
 echo ''
 
-echo "Testing of the akan word 'din' to english..."
-curl -X 'POST' \
-  "$HOST/api/v1/stt?text=&language_code=english" \
-  -H 'accept: application/json' \
-  -H "Authorization: Bearer $token" \
-  -H 'Content-Type: multipart/form-data' \
-  -F "audio=@${BASE}/data/din/din9.flac.mp3;type=audio/mpeg"
-echo ''
-
-echo "Testing of the english word 'hello' to akan..."
+echo "Validation..."
 curl -X 'POST' \
   "$HOST/api/v1/stt?text=&language_code=akan" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer $token" \
   -H 'Content-Type: multipart/form-data' \
-  -F "audio=@${BASE}/data/hello/hello_en-GB_JamesV3Voice.mp3;type=audio/mpeg"
+  -F "audio=@${BASE}/data/combined.mp3;type=audio/mpeg"
 echo ''

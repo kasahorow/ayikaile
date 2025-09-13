@@ -32,7 +32,7 @@ for agent in $CLEANED_METADATA_PATH/*; do
 	for agent_word in $agent/*; do
 		word=$(basename $agent_word | cut -d '.' -f 1 | tr '_' ' ')
 		encoded_word=$(echo -n $word | jq -Rrs @uri)
-		lang_code=todo
+		lang_code=yemba
 
 		echo "Training of the $lang_code word '$word'..."
 
