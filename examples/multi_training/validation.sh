@@ -17,7 +17,7 @@ cat $DATA_PATH/combined.txt | cut -d , -f 2 | xargs -i printf '{} ' > $audio.ori
 
 echo "Validation of $audio using $agent..."
 curl -X 'POST' \
-  "$HOST/api/v1/stt?text=&language_code=$lang_code" \
+  "$HOST/api/v1/stt?target_language_code=$lang_code&min_confidence=0.7&min_break_time=500" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer $(cat $token)" \
   -H 'Content-Type: multipart/form-data' \
