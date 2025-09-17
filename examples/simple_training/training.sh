@@ -45,7 +45,7 @@ echo ''
 
 echo "Validation..."
 curl -X 'POST' \
-  "$HOST/api/v1/stt?target_language_code=akan&min_confidence=0.7&min_break_time=1000" \
+  "$HOST/api/v1/stt?language_code=akan&min_confidence=0.7&min_break_time=1000" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer $token" \
   -H 'Content-Type: multipart/form-data' \
