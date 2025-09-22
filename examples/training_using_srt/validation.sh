@@ -24,7 +24,7 @@ token=$(curl -Ss -X 'POST' \
 
 echo "Validation of ..."
 curl -X 'POST' \
-  "$HOST/api/v1/stt?language_code=en-US&min_confidence=0.6&min_break_time=1000" \
+  "$HOST/api/v1/stt?language_code=en-US&min_confidence=0.6&min_break_time=1000&agent_id=$AGENT_ID" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer $token" \
   -H 'Content-Type: multipart/form-data' \

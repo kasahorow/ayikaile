@@ -19,7 +19,7 @@ for segment in $SEGMENT_DIR/*.txt; do
 
 	echo "Training of the english expression '$text'..."
 	curl -Ss -X 'POST' \
-	  "$HOST/api/v1/train?text=$encoded_text&language_code=en-US" \
+	  "$HOST/api/v1/train?text=$encoded_text&language_code=en-US&agent_id=$AGENT_ID" \
 	  -H 'accept: application/json' \
 	  -H "Authorization: Bearer ${token}" \
 	  -H 'Content-Type: multipart/form-data' \

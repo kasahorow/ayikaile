@@ -33,7 +33,13 @@ password=<access_code>
 
 You can do it in providing your kasahorow access code as follows.
 
+**Get a subscription id**
+
+- TODO
+
 ### Training and usage of the Speech to Text
+
+To train and use a speech to text model, you will have to specify the subscription id as agent id.
 
 **Training of the model** -> */api/v1/train*
 
