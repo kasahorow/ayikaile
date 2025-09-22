@@ -11,7 +11,7 @@ agent=$(echo $token | sed 's/.*\/\(.*\).token/\1/g')
 agent_id=$(expr $(echo $agent | sed 's/agent\(.*\)@.*/\1/g') + 0)
 
 # Generate the test audio.
-ffmpeg -y -safe 0 -f concat -i <(cat $CLEANED_METADATA_PATH/$agent_id/* | sort -R | head -n 100 | tee $DATA_PATH/combined.txt | cut -d , -f 1 | xargs -i printf "file '{}'\n") $audio
+ffmpeg -y -safe 0 -f concat -i <(cat $CLEANED_METADATA_PATH/$agent_id/* | sort -R | head -n 100 | tee $DATA_PATH/combined.txt | cut -d , -f 1 | xargs -i printf "file `pwd`/'{}'\n") $audio
 
 cat $DATA_PATH/combined.txt | cut -d , -f 2 | xargs -i printf '{} ' > $audio.original.txt
 
