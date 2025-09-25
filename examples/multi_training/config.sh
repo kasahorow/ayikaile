@@ -12,6 +12,7 @@ HOST='http://127.0.0.1:8000'
 # Data location.
 DATA_PATH=$BASE/datasets
 CLEANED_METADATA_PATH=$DATA_PATH/cleaned_metadata
+LOCALE=ybb-CM
 
 # Temporary data location.
 TEMP_DIR=$BASE/.temp

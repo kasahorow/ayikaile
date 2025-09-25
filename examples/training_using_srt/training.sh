@@ -5,12 +5,7 @@ set -e
 # Load the configuration file.
 source $(dirname $0)/config.sh
 
-echo "Authentication..."
-token=$(curl -Ss -X 'POST' \
-  "$HOST/token" \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'username=test%40example.com&password=example' | jq -r '.access_token')
+token=$(cat $TEMP_DIR/token)
 
 for segment in $SEGMENT_DIR/*.txt; do
 	text=$(cat $segment)
@@ -19,7 +14,7 @@ for segment in $SEGMENT_DIR/*.txt; do
 
 	echo "Training of the english expression '$text'..."
 	curl -Ss -X 'POST' \
-	  "$HOST/api/v1/train?text=$encoded_text&language_code=en-US&agent_id=$AGENT_ID" \
+	  "$HOST/api/v1/train?text=$encoded_text&locale=en-US&agent_id=$AGENT_ID" \
 	  -H 'accept: application/json' \
 	  -H "Authorization: Bearer ${token}" \
 	  -H 'Content-Type: multipart/form-data' \

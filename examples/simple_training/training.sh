@@ -13,9 +13,9 @@ token=$(curl -Ss -X 'POST' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'username=test%40example.com&password=example' | jq -r '.access_token')
 
-echo "Training of the akan word 'din'..."
+echo "Training of the ak-GH word 'din'..."
 curl -Ss -X 'POST' \
-  "$HOST/api/v1/train?text=din&language_code=akan&agent_id=0000000ce26285e0c7391752defe58577f0b527" \
+  "$HOST/api/v1/train?text=din&locale=ak-GH&agent_id=0000000ce26285e0c7391752defe58577f0b527" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer ${token}" \
   -H 'Content-Type: multipart/form-data' \
@@ -31,7 +31,7 @@ echo ''
 
 echo "Training of the english word 'hello'..."
 curl -Ss -X 'POST' \
-  "$HOST/api/v1/train?text=hello&language_code=english&agent_id=0000000ce26285e0c7391752defe58577f0b527" \
+  "$HOST/api/v1/train?text=hello&locale=english&agent_id=0000000ce26285e0c7391752defe58577f0b527" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer ${token}" \
   -H 'Content-Type: multipart/form-data' \
@@ -45,7 +45,7 @@ echo ''
 
 echo "Validation..."
 curl -X 'POST' \
-  "$HOST/api/v1/stt?language_code=akan&min_confidence=0.7&min_break_time=1000&agent_id=0000000ce26285e0c7391752defe58577f0b527" \
+  "$HOST/api/v1/predict?locale=ak-GH&min_confidence=0.7&min_break_time=1000&agent_id=0000000ce26285e0c7391752defe58577f0b527" \
   -H 'accept: application/json' \
   -H "Authorization: Bearer $token" \
   -H 'Content-Type: multipart/form-data' \
