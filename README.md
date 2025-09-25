@@ -33,9 +33,10 @@ password=<access_code>
 
 You can do it in providing your kasahorow access code as follows.
 
-**Get a subscription id**
+**Get a subscription id** -> */api/v1/subscriptions/*
 
-- TODO
+You can get a subscription id from your available subscriptions.
+If you don't have, you can buy it at [ayikaile.kasahorow.com](https://ayikaile.kasahorow.com)
 
 ### Training and usage of the Speech to Text
 
@@ -49,7 +50,7 @@ To train and use a speech to text model, you will have to specify the subscripti
 
 *NB: Each ayikaile subscriber has a workspace to train and use his own STT model.*
 
-**Test the model** -> */api/v1/stt*
+**Test the model** -> */api/v1/predict*
 
 After train the model with at least 02 words, you can test it in sending an audio file.
 
