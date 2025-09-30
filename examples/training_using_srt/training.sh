@@ -7,20 +7,11 @@ source $(dirname $0)/config.sh
 
 token=$(cat $TEMP_DIR/token)
 
-for segment in $SEGMENT_DIR/*.txt; do
-	text=$(cat $segment)
-	encoded_text=$(jq -Rrs '@uri' $segment)
-	audio=$(echo $segment | sed s/.txt$//g)
-
-	echo "Training of the english expression '$text'..."
-	curl -Ss -X 'POST' \
-	  "$HOST/api/v1/train?text=$encoded_text&locale=en-US&agent_id=$AGENT_ID" \
-	  -H 'accept: application/json' \
-	  -H "Authorization: Bearer ${token}" \
-	  -H 'Content-Type: multipart/form-data' \
-	  -F "audios=@$audio;type=audio/mpeg" \
-	  -F "audios=@$audio;type=audio/mpeg" \
-	  -F "audios=@$audio;type=audio/mpeg" \
-	  -F "audios=@$audio;type=audio/mpeg" | jq -e '.status == true'
-	echo ''
-done
+curl -Ss -X 'POST' \
+  "$HOST/api/v1/train_srt?locale=en-US&agent_id=$AGENT_ID" \
+  -H 'accept: application/json' \
+  -H "Authorization: Bearer ${token}" \
+  -H 'Content-Type: multipart/form-data' \
+  -F "srt=@$DATA_DIR/audio.srt;type=application/x-subrip" \
+  -F "audio=@$DATA_DIR/talking-female-vocals-i-don-t-think-i-understand-it_10bpm_F#_minor.mp3;type=audio/mpeg"
+echo ''

@@ -10,7 +10,7 @@ agent_id=$(ls -1 $CLEANED_METADATA_PATH | head -n 1)
 credential=$(cat $BASE/agent_credentials | head -n $agent_id | tail -n 1)
 
 # Generate the test audio.
-ffmpeg -y -safe 0 -f concat -i <(cat $CLEANED_METADATA_PATH/$agent_id/* | sort -R | head -n 100 | tee $DATA_PATH/combined.txt | cut -d , -f 1 | xargs -i printf "file `pwd`/'{}'\n") $audio
+ffmpeg -y -safe 0 -f concat -i <(cat $CLEANED_METADATA_PATH/$agent_id/* | sort -R | head -n 100 | tee $DATA_PATH/combined.txt | cut -d , -f 1 | xargs -i printf "file '{}'\n") $audio
 
 cat $DATA_PATH/combined.txt | cut -d , -f 2 | xargs -i printf '{} ' > $audio.original.txt
 

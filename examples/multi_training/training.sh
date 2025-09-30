@@ -38,6 +38,6 @@ for agent in $CLEANED_METADATA_PATH/*; do
 		d=$(echo $cmd | xargs -d ' ' -i echo {} | tail -n 3 | tr '\n' ' ')
 		cmd="$cmd $d $d $d"
 
-		eval $cmd | jq -er '.status'
+		echo $(eval $cmd)
 	done	
 done
