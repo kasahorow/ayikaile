@@ -1,59 +1,44 @@
 # Getting started with AYIKAILE: Multilingual at Work Support by kasahorow
 
-This documentation is for developers looking to integrate the AYIKAILE: Multilingual at Work keyword detection API available at https://ayikaile.kasahorow.com/docs.
+This documentation is for developers looking to integrate the AYIKAILE: Multilingual at Work.
 
+### Content
 
-### Prerequisites
+This documentation is organized in 04 sections.
+
+1. [Authentication](#authentication): the kasahorow developer consent code
+2. [Listen](#listen): the kasahorow Speech To Text service
+3. [Speak](#speak): the kasahorow Text To Speech service
+4. [Read](#read): the translation service
+5. [Write](#write): the spellchecking service
+
+### Authentication
+
+**Prerequisites**
 
 - Buy a support package at https://ayikaile.kasahorow.com.
 
-### Example scripts
-
-The example scripts for auth, training and prediction are available in the [`examples`](examples) folder.
-
-### Authentification
-
-**Get your access code**
+**Get your consent code**
 
 - Go at https://kasahorow.com and login.
 - Check your mailbox.
 - Copy the access code available in the login mail under 'Consent Code'
 
-**Generate an API access token** -> */api/v1/token*
+### Listen
 
-- Go at https://ayikaile.kasahorow.com/docs and click on the "Authorize" button.
-- Use your access code as follows.
+- Accessible at https://ayikaile.kasahorow.com/docs.
+- [How to use](examples/stt).
 
-```
-username=<your_email>
-password=<access_code>
-```
+### Speak
 
-- The generated token will allow you to use the API for a limited period of time (currently 01 day).
+- Accessible at https://api.woaka.com/tts.
+- [How to use](examples/tts).
 
-You can do it in providing your kasahorow access code as follows.
+### Read
 
-**Get a subscription id** -> */api/v1/subscriptions/*
+- Accessible at https://nabanya.kasahorow.com/docs.
+- [How to use](examples/translation).
 
-You can get a subscription id from your available subscriptions.
-If you don't have, you can buy it at [ayikaile.kasahorow.com](https://ayikaile.kasahorow.com)
+### Write
 
-### Training and usage of the Speech to Text
-
-To train and use a speech to text model, you will have to specify the subscription id as agent id.
-
-**Training of the model** -> */api/v1/train*
-
-- Provide a textual representation (ascii prefered) of the word that you want the model to be able to recognize.
-- Provide a minimun of 03 audio pronunciations per words (by example 03 audio pronunciations for 'hello', 03 audio pronunciations for 'hi', etc.).
-- Make sure to train at least 02 words, otherwise, the model will be unusable.
-
-*NB: Each ayikaile subscriber has a workspace to train and use his own STT model.*
-
-**Test the model** -> */api/v1/predict*
-
-After train the model with at least 02 words, you can test it in sending an audio file.
-
-### License
-
-This documentation is under the MIT license.
+Not yet available.
