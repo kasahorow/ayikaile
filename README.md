@@ -12,7 +12,7 @@ This documentation is organized in 04 sections.
 4. [Read](#read): the translation service
 5. [Write](#write): the spellchecking service
 
-### Authentification
+### Authentication
 
 **Prerequisites**
 

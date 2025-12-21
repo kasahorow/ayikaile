@@ -1,3 +1,3 @@
 # Simple Text to Speech
 
-In this example, we generate the pronunciation of the Ghomala word `ghɔ̀`.
+`https://api.woaka.com/tts?text=<text>&kasa=<source_language>&access=<consent_code>`
