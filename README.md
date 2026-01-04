@@ -11,6 +11,7 @@ This documentation is organized in 04 sections.
 3. [Speak](#speak): the kasahorow Text To Speech service
 4. [Read](#read): the translation service
 5. [Write](#write): the spellchecking service
+6. [Promote](#promote): the advertisement service
 
 ### Authentication
 
