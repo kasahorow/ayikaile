@@ -42,3 +42,8 @@ This documentation is organized in 04 sections.
 ### Write
 
 Not yet available.
+
+### Promote
+
+- Accessible at https://fienipa.kasahorow.com/app.
+- [How to use](examples/listings)
