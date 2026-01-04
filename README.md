@@ -11,7 +11,8 @@ This documentation is organized in 04 sections.
 3. [Speak](#speak): the kasahorow Text To Speech service
 4. [Read](#read): the translation service
 5. [Write](#write): the spellchecking service
-6. [Promote](#promote): the advertisement service
+6. [Advertise](#advertise): promote your busineess using our advertisement service
+7. [Promote](#promote): make money using our advertisement system
 
 ### Authentication
 
@@ -44,7 +45,18 @@ This documentation is organized in 04 sections.
 
 Not yet available.
 
-### Promote
+### Advertise
 
 - Accessible at https://fienipa.kasahorow.com/app.
 - [How to use](examples/listings)
+
+### Promote
+
+You just need to add this html code somewhere in your webpage.
+And you should replace `<kasa>` with the language that the user speak and `<mkt>` with the language that the user will be happy to learn.
+
+```html
+<div class="text-center">
+    <iframe style="width:90%; border:none" src="https://fienipa.kasahorow.com/gua/serve?l=<kasa>&i=<mkt>&e=1&"></iframe>
+</div>
+```
