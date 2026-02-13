@@ -49,9 +49,10 @@ Not yet available.
 You just need to add this html code somewhere in your webpage.
 And you should replace `<kasa>` with the language that the user speak and `<mkt>` with the language that the user will be happy to learn.
 Also, you should replace `<your_domain>` with your domain name.
+For advertisement based on keywords, you can add the `search_term` param.
 
 ```html
 <div class="text-center">
-    <iframe style="width:90%; border:none" src="https://fienipa.kasahorow.com/gua/serve?l=<kasa>&i=<mkt>&e=1&ref=<your_domain>"></iframe>
+    <iframe style="width:90%; border:none" src="https://fienipa.kasahorow.com/gua/serve?l=<kasa>&i=<mkt>&e=1&c=<search_term>&ref=<your_domain>"></iframe>
 </div>
 ```
